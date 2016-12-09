@@ -24,6 +24,12 @@ trait ParserTest extends Matchers { this: FlatSpec =>
       
     }
     
+    it should "parse 1 * 2 * 3" in {
+      
+      parse("1 * 2 * 3") should be(Times(Times(Number(1), Number(2)), Number(3)))  
+      
+    }
+    
     it should "parse 1 + 2 * 3" in {
       
       parse("1 + 2 * 3") should be(Add(Number(1), Times(Number(2), Number(3))))    
